@@ -6,7 +6,7 @@ var app=express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
-app.get('/timestamp/:value',function(req,res){
+app.get('/:value',function(req,res){
     // console.log('working');
     var val=req.params.value;
     // console.log(val);
@@ -24,7 +24,7 @@ app.get('/timestamp/:value',function(req,res){
         naturaldate=new Date(val*1000).toLocaleDateString("en-us",formatDate);
         unixdate=val;
     }
-res.json({unix:unixdate,natural:naturaldate})
+res.json({unix:unixdate,natural:naturaldate});
     
 })
 
